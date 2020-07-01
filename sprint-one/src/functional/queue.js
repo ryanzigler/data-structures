@@ -16,13 +16,8 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    if (Object.keys(storage).length === 0) {
-      storage[highestKey] = value;
-      highestKey += 1;
-    } else {
-      storage[highestKey] = value;
-      highestKey += 1;
-    }
+    storage[highestKey] = value;
+    highestKey += 1;
   };
 
   someInstance.dequeue = function() {
