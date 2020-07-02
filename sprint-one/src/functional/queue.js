@@ -1,19 +1,9 @@
 var Queue = function() {
   var someInstance = {};
 
-  // Use an object with numeric keys to store values
   var storage = {};
-  /* {0: a.
-      1: b,
-      2: c
-    }
-
- */
-  // global variable for higest current key value
   var highestKey = 0;
   var lowestKey = 0;
-
-  // Implement the methods below
 
   someInstance.enqueue = function(value) {
     storage[highestKey] = value;
@@ -33,9 +23,3 @@ var Queue = function() {
 
   return someInstance;
 };
-
-
-// queue.enqueue('a');
-// queue.enqueue('b');
-// queue.dequeue();
-// expect(queue.size()).to.equal(1);
