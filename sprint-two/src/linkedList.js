@@ -10,7 +10,7 @@ var LinkedList = function() {
       list.head = node;
       list.tail = node;
     } else {
-      list.tail.next = node;
+      list.head.next = node;
       list.tail = node;
     }
   };
@@ -24,14 +24,19 @@ var LinkedList = function() {
 
   // time complexity: linear | O(n)
   list.contains = function(target) {
-    let node = list.head;
-    while (node) {
-      if (node.value === target) {
-        return true;
+    let result = false;
+    const findTarget = function(node) {
+      if (node) {
+        if (node.value === target) {
+          result = true;
+          return result;
+        }
+        node = node.next;
+        findTarget(node);
       }
-      node = node.next;
-    }
-    return false;
+    };
+    findTarget(list.head);
+    return result;
   };
   return list;
 };
