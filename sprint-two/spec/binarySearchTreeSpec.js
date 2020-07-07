@@ -38,6 +38,17 @@ describe('binarySearchTree', function() {
     expect(array).to.eql([5, 2, 3, 7]);
   });
 
+  it('should handle duplicate values being inserted', function() {
+    var array = [];
+    var func = function(value) { array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(2);
+    binarySearchTree.depthFirstLog(func);
+    expect(array).to.eql([5, 2, 3, 7]);
+  });
+
   // it('should remove node edges when a node is removed', function() {
   //   binarySearchTree.insert(2);
   //   binarySearchTree.insert(6);
