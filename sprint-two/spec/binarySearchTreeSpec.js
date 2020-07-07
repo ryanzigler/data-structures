@@ -37,4 +37,21 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it('should remove node edges when a node is removed'), function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(9);
+    binarySearchTree.remove(8);
+    expect(binarySearchTree.contains(7)).to.equal(false);
+    expect(binarySearchTree.contains(2)).to.equal(true);
+    expect(binarySearchTree.contains(6)).to.equal(true);
+    expect(binarySearchTree.contains(3)).to.equal(true);
+    expect(binarySearchTree.contains(1)).to.equal(true);
+    expect(binarySearchTree.contains(9)).to.equal(true);
+    expect(binarySearchTree.contains(8)).to.equal(true);
+  };
 });

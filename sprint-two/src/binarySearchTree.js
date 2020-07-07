@@ -10,51 +10,120 @@ var BinarySearchTree = function(value) {
 };
 
 var nodeMethods = {
+
   insert: function(value) {
-    // create new node
-    // var newNode = BinarySearchTree(value);
-    var insideFunction = function(currentNode, value) {
-
-      if (currentNode.value === undefined) {
-        BinarySearchTree(value);
-
-      } else if (value > currentNode.value) {
-        insideFunction(currentNode.right, value);
+    if (value > this.value) {
+      if (this.right === null) {
+        this.right = BinarySearchTree(value);
       } else {
-        insideFunction(currentNode.left);
+        this.right = this.right.insert(value);
       }
-
-      insideFunction(currentNode);
-
-      if (value < currentNode.value && currentNode.value === undefined) {
-        currentNode.left = BinarySearchTree(value);
+    } else if (value < this.value) {
+      if (this.left === null) {
+        this.left = BinarySearchTree(value);
+      } else {
+        this.left = this.left.insert(value);
       }
-    };
+    }
+    return this;
+  }, // Time Complexity: Log O(log)
 
-  },
-
-
-  // .contains()
   contains: function(target) {
-    let result = false;
-    const findTarget = function(node) {
-      if (node.value === target) {
-        result = true;
-        return result;
+
+    if (target === this.value) {
+      return true;
+    } else if (target > this.value) {
+      if (this.right !== null) {
+        return this.right.contains(target);
       }
-      _.each(node.children, (child) => findTarget(child));
-    };
-    findTarget(this);
-    return result;
+    } else if (target < this.value) {
+      if (this.left !== null) {
+        return this.left.contains(target);
+      }
+    }
+    return false;
+  }, // Time Complexity: Log O(log)
+
+  depthFirstLog: function(func) {
+    func(this.value);
+    if (this.left !== null) {
+      this.left.depthFirstLog(func);
+    }
+    if (this.right !== null) {
+      this.right.depthFirstLog(func);
+    }
   },
 
-  // .depthFirstLog()
-  depthFirstLog: function() {
+  // remove: function(target) {
+  //   //var valuesToReinsert = [];
+  //   var found = false;
+  //   var parent = null;
+  //   var current = this.value;
+  //   var childCount;
+  //   var replacement;
+  //   var replacementParent;
 
-  }
-};
+  //   while (!found && current) {
+  //     if (value < this.value) {
+  //       parent = current;
+  //       current = this.left;
+  //     } else if (value > this.value) {
+  //       parent = current;
+  //       current = this.right;
+  //     } else {
+  //       found = true;
+  //     }
+  //   }
+  //   if (found) {
+  //     continue;
+  //   }
 
+
+
+
+
+
+  // if (target === this.right) {
+  //   this.depthFirstLog(function() {
+  //     valuesToReinsert.push(this.value);
+  //     //detele this;
+  //     return valuesToReinsert;
+  //   })
+  //   de
+  //   }
+//   }
+}; // Time Complexity: Log O(log)
+
+
+// if target === this.value
+// store all the values inside both left and right
+// delete the current node
+// run insert on all of the stored values
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// valuesToReinsert = [2, 6]
+
+// { value: 5,
+//   left:
+//    { value: 4,
+//      left: { value: 2, left: null, right: null },
+//      right: { value: 6, left: null, right: null }
+//   right:
+//    { value: 6,
+//      left: null,
+//      right: { value: 10, left: null, right: null } } }
+
+
+// { value: 5,
+//   left:
+//     { value: 2,
+//       left: null,
+//       right: null },
+
+//   right:
+//     { value: 6,
+//       left: null,
+//       right: { value: 10, left: null, right: null } } }
