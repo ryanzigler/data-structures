@@ -51,5 +51,10 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
-  // add more tests here to test the functionality of linkedList
+  it('should add and remove non-numeral values', function() {
+    linkedList.addToTail('a');
+    linkedList.addToTail('true');
+    expect(linkedList.contains('a')).to.equal(true);
+    expect(linkedList.contains('true')).to.equal(true);
+  });
 });
