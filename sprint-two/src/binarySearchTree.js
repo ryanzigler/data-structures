@@ -52,78 +52,48 @@ var nodeMethods = {
     if (this.right !== null) {
       this.right.depthFirstLog(func);
     }
-  },
+  }, // Time Complexity: Log O(log)
 
   // remove: function(target) {
-  //   //var valuesToReinsert = [];
-  //   var found = false;
-  //   var parent = null;
-  //   var current = this.value;
-  //   var childCount;
-  //   var replacement;
-  //   var replacementParent;
-
-  //   while (!found && current) {
-  //     if (value < this.value) {
-  //       parent = current;
-  //       current = this.left;
-  //     } else if (value > this.value) {
-  //       parent = current;
-  //       current = this.right;
-  //     } else {
-  //       found = true;
+  //   debugger;
+  //   var currentNode = this.value;
+  //   var removeNode = (target, currentNode) => {
+  //     if (currentNode.value === undefined) {
+  //       return null;
   //     }
-  //   }
-  //   if (found) {
-  //     continue;
-  //   }
+  //     if (currentNode.value === target) {
+  //       if (currentNode.left === null && currentNode.right === null) {
+  //         return null;
+  //       }
+  //     } else if (target > currentNode.value) {
+  //       currentNode = removeNode(target, currentNode.right);
+  //       return currentNode;
+  //     } else {
+  //       currentNode = removeNode(target, currentNode.left);
+  //       return currentNode;
+  //     }
+  //   };
+  //   currentNode = removeNode(target, this);
+  // } // Time Complexity: Log O(log)
+};
 
+// var binarySearchTree = BinarySearchTree(10);
 
+// binarySearchTree.insert(2);
+// binarySearchTree.insert(6);
+// binarySearchTree.insert(3);
+// binarySearchTree.insert(7);
+// binarySearchTree.insert(8);
+// binarySearchTree.remove(8);
 
-
-
-
-  // if (target === this.right) {
-  //   this.depthFirstLog(function() {
-  //     valuesToReinsert.push(this.value);
-  //     //detele this;
-  //     return valuesToReinsert;
-  //   })
-  //   de
-  //   }
-//   }
-}; // Time Complexity: Log O(log)
-
-
-// if target === this.value
-// store all the values inside both left and right
-// delete the current node
-// run insert on all of the stored values
+// console.log(binarySearchTree);
 
 /*
- * Complexity: What is the time complexity of the above functions?
- */
 
-// valuesToReinsert = [2, 6]
+{
+  value: 5
+  left: {value:2, left: {value: 1}}
+  right
+}
 
-// { value: 5,
-//   left:
-//    { value: 4,
-//      left: { value: 2, left: null, right: null },
-//      right: { value: 6, left: null, right: null }
-//   right:
-//    { value: 6,
-//      left: null,
-//      right: { value: 10, left: null, right: null } } }
-
-
-// { value: 5,
-//   left:
-//     { value: 2,
-//       left: null,
-//       right: null },
-
-//   right:
-//     { value: 6,
-//       left: null,
-//       right: { value: 10, left: null, right: null } } }
+*/
