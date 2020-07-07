@@ -41,4 +41,10 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should correctly handle duplicate values', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(5);
+    expect(tree.count(5)).to.equal(2);
+  });
 });

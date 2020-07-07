@@ -30,6 +30,18 @@ treeMethods.contains = function(target) {
   return result;
 };
 
+treeMethods.count = function(target) {
+  let count = 0;
+  const countTarget = function(node) {
+    if (node.value === target) {
+      count += 1;
+    }
+    _.each(node.children, (child) => countTarget(child));
+  };
+  countTarget(this);
+  return count;
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
  */
