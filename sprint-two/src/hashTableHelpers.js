@@ -15,20 +15,27 @@ var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
+
+  // calls checkLimit on the index
+  // return value at storage[index]
   limitedArray.get = function(index) {
     checkLimit(index);
     return storage[index];
   };
+  // calls checkLimit on the index
+  // sets storage[index] to passed in value
   limitedArray.set = function(index, value) {
     checkLimit(index);
     storage[index] = value;
   };
+  // runs callback function over each item in hashTable
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);
     }
   };
 
+  // returns limitedArray unless index is NaN or greater or equal limit
   var checkLimit = function(index) {
     if (typeof index !== 'number') {
       throw new Error('setter requires a numeric index for its first argument');

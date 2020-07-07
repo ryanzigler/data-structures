@@ -8,7 +8,7 @@ var setPrototype = {};
 
 setPrototype.add = function(item) {
   this._storage.item = 1;
-};  // Time complexity: Constant O(1)
+}; // Time complexity: Constant O(1)
 
 setPrototype.contains = function(item) {
   if (this._storage.item) {
